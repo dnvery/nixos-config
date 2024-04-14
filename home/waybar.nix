@@ -49,7 +49,7 @@
       };
 
       "clock" = {
-        "format" = " { =%H =%M}";
+        "format" = " {:%H:%M}";
         "tooltip-format" = "<tt><small>{calendar}</small></tt>";
       };
 
