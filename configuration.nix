@@ -122,6 +122,7 @@
   environment.systemPackages = with pkgs; [
     vim
     neovim
+    fontforge
     #lua-language-server
     (pkgs.wrapOBS { plugins = [ pkgs.obs-studio-plugins.obs-vaapi ]; })
     obsidian
