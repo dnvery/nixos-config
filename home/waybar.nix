@@ -4,7 +4,7 @@
     settings.mainBar = {
       layer = "top";
       position = "top";
-      mode = "dock";
+#      mode = "dock";
       height = 30;
 
       modules-left = [

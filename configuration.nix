@@ -16,7 +16,7 @@
       servers = {
         lua-ls = { enable = true; };
         java-language-server = { enable = true; };
-        nil_ls = { enable = true; };
+        nil_ls = { enable = true; }; # Nix
       };
     };
     plugins.neo-tree.enable = true;
@@ -25,6 +25,11 @@
       cmd = [
         (lib.getExe pkgs.jdt-language-server)
       ];
+    };
+    plugins.cmp-nvim-lsp.enable = true;
+    plugins.nvim-cmp = {
+      enable = true;
+      #autoEnableSources = true;
     };
     keymaps = [
       {
@@ -120,6 +125,7 @@
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
   
   environment.systemPackages = with pkgs; [
+    ags
     vim
     neovim
     fontforge-gtk
