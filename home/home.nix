@@ -4,6 +4,7 @@
   home.homeDirectory = "/home/daniil";
 
   imports = [ 
+    ./nixvim.nix
     ./gtk.nix
     ./scripts.nix
     ./zsh.nix
@@ -15,6 +16,7 @@
     ./zathura.nix
     ./hyprland.nix
     ./waybar.nix
+    ./git.nix
   ];
 
   # link the configuration file in current directory to the specified location in home directory
