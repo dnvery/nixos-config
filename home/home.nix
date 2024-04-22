@@ -6,7 +6,7 @@
   imports = [ 
     ./nixvim
     ./gtk.nix
-    ./scripts.nix
+    ./scripts
     ./zsh.nix
     ./starship.nix
     ./cava.nix
