@@ -4,7 +4,7 @@
   home.homeDirectory = "/home/daniil";
 
   imports = [ 
-    ./nixvim.nix
+    ./nixvim
     ./gtk.nix
     ./scripts.nix
     ./zsh.nix
