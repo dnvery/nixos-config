@@ -7,6 +7,22 @@
       ./battery-monitor.nix
     ];
 
+  programs.steam.enable = true;
+  services.flatpak.enable = true;
+
+  xdg.portal = {
+    extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
+  };
+
+  zramSwap = {
+    enable = true;
+  };
+
+  services.static-web-server = {
+    enable = true;
+    root = "/home/daniil/sws";
+  };
+
   modules.battery_monitor.enable = true;
 
   boot.kernelParams = [ "amdgpu.sg_display=0" ];
@@ -75,6 +91,9 @@
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
   
   environment.systemPackages = with pkgs; [
+    lutris
+    static-web-server
+    tor-browser
     vim
     neovim
     (pkgs.wrapOBS { plugins = [ pkgs.obs-studio-plugins.obs-vaapi ]; })
