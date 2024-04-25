@@ -14,6 +14,7 @@
         lua-ls = { enable = true; };
         java-language-server = { enable = true; };
         nil_ls = { enable = true; }; # Nix
+        html = { enable = true; };
       };
       keymaps.lspBuf = {
         "gd" = "definition";
