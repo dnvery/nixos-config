@@ -5,6 +5,12 @@
     [
       ./hardware-configuration.nix
       ./battery-monitor.nix
+      ./bootloader.nix
+      ./swap.nix
+      ./bluetooth.nix
+      ./pipewire.nix
+      ./fonts.nix
+      ./network.nix
     ];
 
   programs.steam.enable = true;
@@ -12,10 +18,6 @@
 
   xdg.portal = {
     extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
-  };
-
-  zramSwap = {
-    enable = true;
   };
 
   services.static-web-server = {
@@ -26,7 +28,6 @@
   modules.battery_monitor.enable = true;
 
   boot.kernelParams = [ "amdgpu.sg_display=0" ];
-  boot.loader.systemd-boot.configurationLimit = 10;
 
   services.udev.extraRules = ''
     KERNEL=="card1", SUBSYSTEM=="drm", DRIVERS=="amdgpu", ATTR{device/power_dpm_force_performance_level}="high"
@@ -36,45 +37,9 @@
 
   programs.zsh.enable = true;
 
-  hardware.bluetooth.enable = true;
-  hardware.bluetooth.powerOnBoot = true;
-  services.blueman.enable = true;
-
-  fonts = {
-    packages = with pkgs-master; [ 
-#      nerdfonts
-      (pkgs.callPackage ./apple-nerd-fonts.nix {})
-    ];
-
-    fontconfig = {
-      defaultFonts = {
-        serif = [ "SFProDisplay Nerd Font" ];
-        sansSerif = [ "SFProDisplay Nerd Font" ];
-        monospace = [ "SFMono Nerd Font" ];
-      };
-    };
-  };
-
-  boot.loader.systemd-boot.enable = true;
-  boot.loader.efi.canTouchEfiVariables = true;
-
   boot.kernelPackages = pkgs.linuxPackages_latest;
 
-  networking.hostName = "nixos";
-  
-  networking.wireless.iwd.enable = true;
-  networking.networkmanager.enable = true;
-  networking.networkmanager.wifi.backend = "iwd";
-
   time.timeZone = "Europe/Moscow";
-
-  security.rtkit.enable = true;
-  services.pipewire = {
-    enable = true;
-    alsa.enable = true;
-    alsa.support32Bit = true;
-    pulse.enable = true;
-  };
 
   programs.hyprland.enable = true;  
   programs.hyprland.package = pkgs-master.hyprland;
