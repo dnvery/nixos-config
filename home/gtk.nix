@@ -26,14 +26,14 @@
       #package = pkgs.nordzy-cursor-theme;
       name = "macOS-Monterey";
       package = pkgs.apple-cursor;
-      size = 24;
+      size = 20;
     };
   };
 
   home.pointerCursor = {
     name = "macOS-Monterey";
     package = pkgs.apple-cursor;
-    size = 24;
+    size = 20;
   };
 
   qt = {

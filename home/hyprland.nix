@@ -109,7 +109,7 @@
       ];
 
       env = [
-        "XCURSOR_SIZE,24"
+        "XCURSOR_SIZE,20"
         "QT_QPA_PLATFORMTHEME,qt5ct"
         "ELECTRON_OZONE_PLATFORM_HINT,wayland"
         "GDK_SCALE,2"
