@@ -118,8 +118,6 @@
     extraConfig = "
 monitor=,preferred,auto,auto
 
-source = ~/.config/hypr/mocha.conf
-
 windowrulev2 = suppressevent maximize, class:.* # You'll probably like this.
 
 bind = ALT, R, submap, resize
