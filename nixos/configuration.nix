@@ -20,11 +20,6 @@
     extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
   };
 
-  services.static-web-server = {
-    enable = true;
-    root = "/home/daniil/sws";
-  };
-
   modules.battery_monitor.enable = true;
 
   boot.kernelParams = [ "amdgpu.sg_display=0" ];
@@ -54,10 +49,24 @@
   };
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
+
+  nixpkgs.overlays = [(
+    final: prev:
+    {
+      prismlauncher-unwrapped = prev.prismlauncher-unwrapped.overrideAttrs (old: {
+        patches = (old.patches or []) ++ [
+          (prev.fetchpatch {
+            url = "https://github.com/dnvery/PrismLauncherFTB/commit/470430ce599ddbc972a4e013832986884124da3c.patch";
+            hash = "sha256-pzL9xl6y3BuAUG7eN2WgRyd0p4bcoGG92bHyrtCFgC8=";
+          })
+        ];
+      });
+    }
+  )];
   
   environment.systemPackages = with pkgs; [
     lutris
-    static-web-server
+    jetbrains.idea-community
     tor-browser
     vim
     neovim
@@ -81,7 +90,7 @@
     hyprpaper
     grimblast
     dolphin-emu
-    pkgs-dnvery.prismlauncherftb
+    prismlauncher
     pkgs-dnvery.blueman
   ];
 
