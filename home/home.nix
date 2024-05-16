@@ -5,6 +5,7 @@
 
   imports = [ 
     ./nixvim
+    ./firefox.nix
     ./kitty.nix
     ./gtk.nix
     ./scripts
