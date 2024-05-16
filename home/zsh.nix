@@ -10,8 +10,8 @@
     };
     shellAliases = {
       c = "clear";
-      update = "sudo nixos-rebuild switch";
-      upgrade = "sudo nixos-rebuild switch --upgrade";
+      update = "sudo nixos-rebuild switch --flake ~/nixos-config";
+      flake-update = "sudo nix flake update ~/nixos-config";
     };
   };
 }
