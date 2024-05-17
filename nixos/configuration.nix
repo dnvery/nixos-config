@@ -61,6 +61,15 @@
           })
         ];
       });
+
+      hyprland = prev.hyprland.overrideAttrs (old: {
+        patches = (old.patches or []) ++ [
+          (prev.fetchpatch {
+            url = "https://github.com/hyprwm/Hyprland/commit/1584679004435d93d5fe2dd794d2aefaa0c9574a.patch";
+            hash = "sha256-IhptzW73q5O2A1d/6WCZn6X3x8kV4yTN7v9eRjpVgv4=";
+          })
+        ];
+      });
     }
   )];
   
