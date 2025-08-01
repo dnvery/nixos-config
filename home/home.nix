@@ -2,6 +2,7 @@
 
 {
   imports = [
+    ./scripts
     ./gtk.nix
     ./qt.nix
     ./git.nix
