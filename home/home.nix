@@ -7,7 +7,6 @@
     ./vscodium.nix
     ./kitty.nix
     ./cava.nix
-    ./waybar.nix
     ./hyprland.nix
     ./hyprlock.nix
     ./hyprpanel.nix
@@ -17,6 +16,7 @@
     ./syncthing.nix
     ./rofi.nix
     ./clock-rs.nix
+    ./zathura.nix
   ];
 
   # home.pointerCursor = {
