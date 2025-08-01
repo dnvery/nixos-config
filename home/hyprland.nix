@@ -4,9 +4,9 @@
     settings = {
       "$mod" = "SUPER";
       "$terminal" = "kitty";
-      "$menu" = "wofi --show drun";
+      "$menu" = "rofi -show drun || pkill rofi";
 
-      exec-once = [ "swww-daemon &" "clash-verge" ];
+      exec-once = [ "swww-daemon" "clash-verge &" "keepassxc &"];
 
       input = {
         kb_layout = "us,ru";
@@ -69,7 +69,7 @@
       bind = [
         "$mod, Q, exec, $terminal"
         "$mod, R, exec, $menu"
-        "$mod, D, exec, rofi -show drun || pkill rofi"
+        "$mod, F, exec, firefox"
         "$mod, C, killactive,"
         "$mod, M, exit,"
         "$mod, L, exec, hyprlock"
