@@ -12,25 +12,20 @@
 
   # Use the systemd-boot EFI boot loader.
   boot.loader.systemd-boot.enable = true;
+  boot.loader.systemd-boot.configurationLimit = 10;
   boot.loader.efi.canTouchEfiVariables = true;
 
   # Use latest kernel.
-  boot.kernelPackages = pkgs.linuxPackages_latest;
+  boot.kernelPackages = pkgs.linuxPackages_zen;
+
+  hardware.enableRedistributableFirmware = true;
 
   networking.hostName = "nixos";
   networking.networkmanager.enable = true;
 
-  specialisation.proxy = {
-    configuration = {
-      networking.proxy.default = "http://localhost:7897";
-      networking.proxy.noProxy = "127.0.0.1,localhost";
-    };
-  };
-
-
-  # virtualisation.virtualbox.host.enable = true;
-  # virtualisation.virtualbox.host.enableExtensionPack = true;
-  # users.extraGroups.vboxusers.members = [ "daniil" ];
+  virtualisation.virtualbox.host.enable = true;
+  virtualisation.virtualbox.host.enableExtensionPack = true;
+  users.extraGroups.vboxusers.members = [ "daniil" ];
 
   swapDevices = [{
     device = "/var/lib/swapfile";
@@ -140,6 +135,7 @@
     python3
     zed-editor-fhs
     devenv
+    qbittorrent
     (bottles.override { removeWarningPopup = true; })
   ];
 
