@@ -3,6 +3,7 @@
 {
   imports = [
     ./gtk.nix
+    ./qt.nix
     ./git.nix
     ./vscodium.nix
     ./kitty.nix
