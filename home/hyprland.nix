@@ -73,6 +73,8 @@
         "$mod, C, killactive,"
         "$mod, M, exit,"
         "$mod, L, exec, hyprlock"
+        ", PRINT, exec, hyprshot -m active -m output"
+        "$mod, PRINT, exec, hyprshot -m region"
         "$mod, 1, workspace, 1"
         "$mod, 2, workspace, 2"
         "$mod, 3, workspace, 3"

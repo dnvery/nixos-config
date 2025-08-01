@@ -136,6 +136,7 @@
     zed-editor-fhs
     devenv
     qbittorrent
+    hyprshot
     (bottles.override { removeWarningPopup = true; })
   ];
 
