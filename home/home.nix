@@ -19,6 +19,7 @@
     ./rofi.nix
     ./clock-rs.nix
     ./zathura.nix
+    ./mpv.nix
   ];
 
   # home.pointerCursor = {
