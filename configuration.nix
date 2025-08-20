@@ -53,6 +53,15 @@
     };
   };
 
+  programs.thunar = {
+    enable = true;
+    plugins = with pkgs.xfce; [
+      thunar-archive-plugin
+      thunar-volman
+    ];
+  };
+  services.tumbler.enable = true;
+
   services.udisks2.enable = true;
 
   programs.clash-verge = {
@@ -94,34 +103,34 @@
     pulse.enable = true;
   };
 
-  services.pipewire.extraConfig.pipewire."92-low-latency" = {
-    "context.properties" = {
-      "default.clock.rate" = 48000;
-      "default.clock.quantum" = 1024;
-      "default.clock.min-quantum" = 1024;
-      "default.clock.max-quantum" = 1024;
-    };
-  };
+  # services.pipewire.extraConfig.pipewire."92-low-latency" = {
+  #   "context.properties" = {
+  #     "default.clock.rate" = 48000;
+  #     "default.clock.quantum" = 4096;
+  #     "default.clock.min-quantum" = 512;
+  #     "default.clock.max-quantum" = 16384;
+  #   };
+  # };
 
-  services.pipewire.extraConfig.pipewire-pulse."92-low-latency" = {
-    "context.properties" = [
-      {
-        name = "libpipewire-module-protocol-pulse";
-        args = { };
-      }
-    ];
-    "pulse.properties" = {
-      "pulse.min.req" = "1024/48000";
-      "pulse.default.req" = "1024/48000";
-      "pulse.max.req" = "1024/48000";
-      "pulse.min.quantum" = "1024/48000";
-      "pulse.max.quantum" = "1024/48000";
-    };
-    "stream.properties" = {
-      "node.latency" = "32/48000";
-      "resample.quality" = 1;
-    };
-  };
+  # services.pipewire.extraConfig.pipewire-pulse."92-low-latency" = {
+  #   "context.properties" = [
+  #     {
+  #       name = "libpipewire-module-protocol-pulse";
+  #       args = { };
+  #     }
+  #   ];
+  #   "pulse.properties" = {
+  #     "pulse.min.req" = "1024/48000";
+  #     "pulse.default.req" = "1024/48000";
+  #     "pulse.max.req" = "1024/48000";
+  #     "pulse.min.quantum" = "1024/48000";
+  #     "pulse.max.quantum" = "1024/48000";
+  #   };
+  #   "stream.properties" = {
+  #     "node.latency" = "32/48000";
+  #     "resample.quality" = 1;
+  #   };
+  # };
 
   nixpkgs.config.allowUnfree = true;
 
@@ -156,8 +165,9 @@
     prismlauncher
     keepassxc
     obsidian
-    xfce.thunar
+    xfce.ristretto
     jetbrains.idea-community
+    jetbrains.idea-ultimate
     # jetbrains.idea-ultimate
     # jetbrains.rust-rover
     jetbrains.pycharm-community
@@ -166,6 +176,8 @@
     devenv
     qbittorrent
     hyprshot
+    libreoffice
+    calibre
     (bottles.override { removeWarningPopup = true; })
   ];
 
