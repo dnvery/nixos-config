@@ -66,6 +66,50 @@
           };
         };
       };
+      settings = {
+        "browser.newtabpage.pinned" = [
+          {
+            url = "https://vk.com";
+            label = "vk";
+          }
+          {
+            url = "https://www.youtube.com";
+            label = "youtube";
+          }
+          {
+            url = "https://chat.deepseek.com";
+            label = "deepseek";
+          }
+          {
+            url = "http://localhost:8384";
+            label = "syncthing";
+          }
+          {
+            url = "https://github.com";
+            label = "github";
+          }
+          {
+            url = "https://reyohoho.github.io";
+            label = "reyohoho";
+          }
+          {
+            url = "https://reddit.com";
+            label = "reddit";
+          }
+          {
+            url = "https://annas-archive.org";
+            label = "annas-archive";
+          }
+          {
+            url = "https://yandex.ru/pogoda";
+            label = "weather";
+          }
+          {
+            url = "https://gog-games.to";
+            label = "gog-games";
+          }
+        ];
+      };
     };
   };
 
