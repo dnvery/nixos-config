@@ -20,6 +20,8 @@
     ./clock-rs.nix
     ./zathura.nix
     ./mpv.nix
+    ./ncmpcpp.nix
+    ./yazi.nix
   ];
 
   # home.pointerCursor = {
