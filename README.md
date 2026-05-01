@@ -55,7 +55,7 @@ nixos-config/
 1. Clone this repository:
 
 ```bash
-git clone https://github.com/yourusername/nixos-config ~/.config/nixos
+git clone https://github.com/dnvery/nixos-config ~/.config/nixos
 ```
 
 2. Update `hardware-configuration.nix` with your system's hardware config:
