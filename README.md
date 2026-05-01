@@ -74,6 +74,12 @@ sudo nixos-rebuild switch --flake ~/.config/nixos#nixos
 
 ---
 
+## 🎨 Screenshots
+
+![Desktop](.github/assets/desktop.png)
+
+---
+
 ## ⌨️ Key Bindings
 
 ### Hyprland

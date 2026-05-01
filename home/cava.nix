@@ -23,13 +23,9 @@
 
       color = {
         gradient = 1;
-        gradient_count = 6;
-        gradient_color_1 = "'#cba6f7'"; # Mauve
-        gradient_color_2 = "'#f5c2e7'"; # Pink
-        gradient_color_3 = "'#f38ba8'"; # Red
-        gradient_color_4 = "'#fab387'"; # Peach
-        gradient_color_5 = "'#f9e2af'"; # Yellow
-        gradient_color_6 = "'#a6e3a1'"; # Green
+        gradient_count = 2;
+        gradient_color_1 = "'#89b4fa'";
+        gradient_color_2 = "'#94e2d5'";
       };
 
       smoothing = {
