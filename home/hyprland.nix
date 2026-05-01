@@ -9,7 +9,6 @@
         "$mod, Q, exec, kitty"
         "$mod, C, killactive,"
         "$mod, M, exit,"
-        "$mod, E, exec, dolphin"
         "$mod, V, togglefloating,"
         "$mod, R, exec, noctalia-shell ipc call launcher toggle"
         "$mod, P, pseudo, # dwindle"
