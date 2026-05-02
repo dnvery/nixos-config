@@ -161,6 +161,16 @@
           opacity = [ 0.90 0.90 ];
         }
         {
+          name = "telegram-opacity";
+          match.class = "^(org.telegram.desktop)$";
+          opacity = [ 0.90 0.90 ];
+        }
+        {
+          name = "vscodium-opacity";
+          match.class = "^(codium)$";
+          opacity = [ 0.90 0.90 ];
+        }
+        {
           name = "no-blur-fullscreen";
           match.fullscreen = true;
           opacity = [ 1.0 1.0 ];
