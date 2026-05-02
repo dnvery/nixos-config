@@ -9,7 +9,8 @@
         "$mod, Q, exec, kitty"
         "$mod, C, killactive,"
         "$mod, M, exit,"
-        "$mod, V, togglefloating,"
+        "$mod, T, togglefloating,"
+        "$mod, V, exec, cliphist list | rofi -dmenu | cliphist decode | wl-copy"
         "$mod, R, exec, noctalia-shell ipc call launcher toggle"
         "$mod, P, pseudo, # dwindle"
         "$mod, J, togglesplit, # dwindle"
@@ -76,6 +77,7 @@
 
       exec-once = [
         "noctalia-shell"
+        "wl-paste --watch cliphist store"
       ];
 
       general = {

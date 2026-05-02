@@ -13,6 +13,7 @@
     ./vscodium.nix
     ./obsidian.nix
     ./ncmpcpp.nix
+    ./opencode.nix
   ];
 
   home.username = "daniil";
@@ -30,7 +31,12 @@
 
   home.packages = with pkgs; [
     grimblast
+    wl-clipboard
+    cliphist
+    rofi
   ];
+
+  services.cliphist.enable = true;
 
   home.file."Pictures/Screenshots/.keep".text = "";
 
