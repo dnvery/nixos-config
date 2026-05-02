@@ -2,6 +2,7 @@
 
 {
   imports = [
+    ./scripts
     ./noctalia.nix
     ./theming.nix
     ./syncthing.nix
