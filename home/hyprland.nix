@@ -137,6 +137,7 @@
       env = [
         #"GDK_SCALE,2"
         "XCURSOR_SIZE,24"
+        "QT_WAYLAND_DISABLE_WINDOWDECORATION,1"
       ];
 
       windowrule = [
