@@ -136,6 +136,7 @@
         kb_options = "grp:caps_toggle";
         touchpad = {
           natural_scroll = true;
+          scroll_factor = 0.35;
         };
       };
 
