@@ -31,12 +31,9 @@
 
   home.packages = with pkgs; [
     grimblast
-    wl-clipboard
-    cliphist
     rofi
+    playerctl
   ];
-
-  services.cliphist.enable = true;
 
   home.file."Pictures/Screenshots/.keep".text = "";
 

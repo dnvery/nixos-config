@@ -10,7 +10,7 @@
         "$mod, C, killactive,"
         "$mod, M, exit,"
         "$mod, T, togglefloating,"
-        "$mod, V, exec, cliphist list | rofi -dmenu | cliphist decode | wl-copy"
+        "$mod, V, exec, noctalia-shell ipc call launcher clipboard"
         "$mod, R, exec, noctalia-shell ipc call launcher toggle"
         "$mod, P, pseudo, # dwindle"
         "$mod, J, togglesplit, # dwindle"
@@ -71,13 +71,18 @@
         ", XF86MonBrightnessDown, exec, brightnessctl set 5%-"
       ];
 
+      bindl = [
+        ", XF86AudioPlay, exec, playerctl play-pause"
+        ", XF86AudioNext, exec, playerctl next"
+        ", XF86AudioPrev, exec, playerctl previous"
+      ];
+
       monitor = [
         ",preferred,auto,auto"
       ];
 
       exec-once = [
         "noctalia-shell"
-        "wl-paste --watch cliphist store"
       ];
 
       general = {
