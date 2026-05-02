@@ -12,6 +12,7 @@
         "$mod, T, togglefloating,"
         "$mod, V, exec, noctalia-shell ipc call launcher clipboard"
         "$mod, R, exec, noctalia-shell ipc call launcher toggle"
+        "$mod, L, exec, noctalia-shell ipc call lockScreen lock"
         "$mod, P, pseudo, # dwindle"
         "$mod, J, togglesplit, # dwindle"
 
@@ -133,6 +134,9 @@
       input = {
         kb_layout = "us,ru";
         kb_options = "grp:caps_toggle";
+        touchpad = {
+          natural_scroll = true;
+        };
       };
 
       xwayland = {
