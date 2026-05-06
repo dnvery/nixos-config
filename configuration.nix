@@ -23,6 +23,8 @@
 
   nixpkgs.config.allowUnfree = true;
 
+  services.gnome.gnome-keyring.enable = true;
+
   fonts = {
     packages = with pkgs; [
       inter-nerdfont
@@ -80,6 +82,10 @@
     };
   };
 
+  environment.sessionVariables = {
+    ELECTRON_OZONE_PLATFORM_HINT = "wayland";
+  };
+
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
   programs.hyprland.enable = true;
 
@@ -108,12 +114,21 @@
   programs.throne = {
     enable = true;
     tunMode.enable = true;
+    package = pkgs.symlinkJoin {
+      name = "throne-wrapped";
+      paths = [ pkgs.throne ];
+      buildInputs = [ pkgs.makeWrapper ];
+      postBuild = ''
+        wrapProgram $out/bin/Throne --set QT_FONT_DPI 160
+      '';
+    };
   };
 
   # List packages installed in system profile.
   # You can use https://search.nixos.org/ to find more packages (and options).
   environment.systemPackages = with pkgs; [
     hyprlauncher
+    gsettings-desktop-schemas
     nodejs
     claude-code
     gemini-cli
@@ -122,8 +137,18 @@
     telegram-desktop
     keepassxc
     brightnessctl
+    v2rayn
     android-studio
     android-tools
+    (pkgs.symlinkJoin {
+      name = "postman";
+      paths = [ pkgs.postman ];
+      buildInputs = [ pkgs.makeWrapper ];
+      postBuild = ''
+        wrapProgram $out/bin/postman --set GSETTINGS_SCHEMA_DIR ${pkgs.gtk3}/share/gsettings-schemas/${pkgs.gtk3.name}/glib-2.0/schemas
+      '';
+    })
+    prismlauncher
   ];
 
   # Some programs need SUID wrappers, can be configured further or are

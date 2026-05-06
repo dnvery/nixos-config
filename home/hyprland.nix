@@ -15,6 +15,7 @@
         "$mod, L, exec, noctalia-shell ipc call lockScreen lock"
         "$mod, P, pseudo, # dwindle"
         "$mod, J, togglesplit, # dwindle"
+        "$mod, F, exec, firefox"
 
         # Screenshot bindings
         ", Print, exec, grimblast --freeze --notify copysave area ~/Pictures/Screenshots/screenshot-$(date +%Y%m%d-%H%M%S).png"
@@ -84,6 +85,7 @@
 
       exec-once = [
         "noctalia-shell"
+        "clash-verge"
       ];
 
       general = {
