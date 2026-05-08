@@ -25,6 +25,11 @@
 
   services.gnome.gnome-keyring.enable = true;
 
+  hardware.graphics = {
+    enable = true;
+    enable32Bit = true;
+  };
+
   fonts = {
     packages = with pkgs; [
       inter-nerdfont
