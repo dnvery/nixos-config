@@ -10,6 +10,22 @@
       ./hardware-configuration.nix
     ];
 
+  # Enable Plymouth
+  boot.plymouth = {
+    enable = true;
+#    theme = "catppuccin-mocha"; # Options: "bgrt" (OEM logo) or "nixos-logo"
+  };
+
+  # Silence console messages
+  boot.consoleLogLevel = 0;
+  boot.kernelParams = [
+    "quiet"
+    "splash"
+    "amdgpu.noretry=0"
+    "amdgpu.vm_update_mode=3"
+    "amdgpu.sg_display=0"
+  ];
+
   boot.loader.systemd-boot.enable = true;
   boot.loader.systemd-boot.configurationLimit = 10;
   boot.loader.efi.canTouchEfiVariables = true;
@@ -76,6 +92,12 @@
   services.upower.enable = true;
   services.power-profiles-daemon.enable = true;
 
+  services.logind.settings.Login = {
+    HandleLidSwitch = "suspend";
+    HandleLidSwitchExternalPower = "suspend";
+    HandleLidSwitchDocked = "ignore";
+  };
+
   # RyzenAdj temperature limit service
   systemd.services.ryzenadj-temp-limit = {
     description = "Set AMD CPU temperature limit to 77C";
@@ -138,11 +160,17 @@
     claude-code
     gemini-cli
     bottles
+    (lutris.override {
+      extraLibraries =  pkgs: [
+        # List library dependencies here
+      ];
+    })
     ryzenadj
     telegram-desktop
     keepassxc
     brightnessctl
     v2rayn
+    qbittorrent
     android-studio
     android-tools
     (pkgs.symlinkJoin {
